@@ -1,0 +1,281 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package hangman;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author e.ruiya
+ */
+public class Hangman {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String options[][] = {{"basketball", "soccer", "tennis", "swimming"},
+        {"avengers", "avatar", "terminator", "godfather"},
+        {"house", "spongebob", "bones", "supernatural"}
+        };
+        int random1 = (int) (3 * Math.random());
+        int random2 = (int) (4 * Math.random());
+        String word = options[random1][random2];
+        switch (random1) {
+            case 0:
+                System.out.println("Category: Sports");
+                break;
+            case 1:
+                System.out.println("Category: Movies");
+                break;
+            case 2:
+                System.out.println("Category: TV Shows");
+                break;
+        }
+        int count = 0;
+        int length = word.length();
+        String[] parts = word.split("");
+        String[] dash = new String[length];
+        String letter;
+        int i;
+        for (i = 0; i < length; i++) {
+            dash[i] = "_";
+        }
+        String[] dash2 = new String[length];
+        for( i =0 ; i < dash.length;i++){
+          dash2[i] = dash[i];  
+        }
+
+        for (i = 0; i < length; i++) {
+            System.out.print(dash[i] + " ");
+        }
+        System.out.println("");
+        do {
+            
+            System.out.println("Enter a guess");
+            letter = in.next();
+            for (i = 0; i < length; i++) {
+                if (parts[i].equals(letter)) {
+                    dash[i] = letter;
+                  
+                }
+            }
+
+            
+            if (Dashes(dash, dash2) == true) {//If I want to draw a hangman input code here
+                count += 1;
+                switch (count) {
+                    case 1:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 2:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 3:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("|  |");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 4:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("| /|");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 5:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("| /|\\ ");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 6:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("| /|\\ ");
+                        System.out.println("| /");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 7:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("| /|\\ ");
+                        System.out.println("| / \\");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+
+                }
+
+            } else {
+                switch (count) {
+                    case 1:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 2:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 3:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("|  |");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 4:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("| /|");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 5:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("| /|\\ ");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 6:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("| /|\\ ");
+                        System.out.println("| /");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+                    case 7:
+                        System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| (_)");
+                        System.out.println("|  |");
+                        System.out.println("| /|\\ ");
+                        System.out.println("| / \\");
+                        System.out.println("|");
+                        System.out.println("|___");
+                        break;
+
+                }
+
+            }
+            if( count ==0){
+                System.out.println("____");
+                        System.out.println("|  |");
+                        System.out.println("| ");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|");
+                        System.out.println("|___");
+                
+            }
+             for( i =0 ; i < dash.length;i++){
+          dash2[i] = dash[i];  
+        }
+            for (i = 0; i < length; i++) {
+                System.out.print(dash[i] + " ");
+            }
+            System.out.println("");
+
+        } while ((Dash(dash, parts) == false) && count < 7);
+
+        if (count < 7 && Dash(dash, parts) == true) {
+            System.out.println("Congratulations!");
+        } else {
+            System.out.println("You ran out of turns");
+            System.out.println("The correct answer was "+ word);
+        }
+
+    }
+
+    public static boolean Dash(String[] dash, String[] parts) {
+        boolean statement = false;
+        int i;
+        for( i = 0; i < dash.length;i++ ){
+        if (dash[i].equals(parts[i])) {
+            statement = true;
+        } else {
+            statement = false;
+            break;
+        }
+        }
+
+        return statement;
+    }
+
+    public static boolean Dashes(String[] dash, String[] dash2) {
+        int i;
+        boolean statement = false;
+        for( i = 0; i < dash.length;i++ ){
+        if (dash[i].equals(dash2[i])) {
+            statement = true;
+        } else {
+            statement = false;
+            break;
+        }
+        }
+
+        return statement;
+    }
+
+}

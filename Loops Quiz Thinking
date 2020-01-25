@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication7;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author e.ruiya
+ */
+public class JavaApplication7 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner in = new Scanner(System.in);
+        
+        System.out.println("Enter starting number:");
+        int num1 = in.nextInt();
+        int save_num1 = num1;
+        System.out.println("Enter second number:");        
+        int num2 = in.nextInt();
+        int save_num2 = num2;
+        int count = 0;
+        System.out.print(num1 + " ");
+        System.out.print(num2 + " ");
+        if (num1 > 0 && num2 > 0){
+        do{
+          num1 = (num1+num2)%10;
+            System.out.print(num1 + " ");
+          num2 = (num1 +num2)%10;
+            System.out.print(num2 + " ");
+          count+=2;        
+        }while (num1 != save_num1 || num2 != save_num2);
+            System.out.println("");
+            System.out.println("Number of steps: " + count);
+        }
+        
+        else{
+            System.out.println("Not postive numbers");
+        }
+        
+    }
+    
+}

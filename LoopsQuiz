@@ -1,0 +1,99 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication6;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author e.ruiya
+ */
+public class JavaApplication6 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+          Scanner in = new Scanner(System.in);
+    //Question 1
+          System.out.println("Question 1");
+          int sum_visitors = 0;
+    int days = 1;
+    int visitors;
+    
+    for (;days<6;){
+            System.out.println("Enter number of visitors on day "+ days + ":");
+            visitors = in.nextInt();
+            sum_visitors = sum_visitors + visitors; // adding on visitors each day to get average
+            days+=1;     // adding a day each time
+    }
+        int average = sum_visitors/5; //average calculation
+        System.out.println("The average number of visitors is "+ average);
+        
+    //Question 2
+        System.out.println("Question 2");
+    int input;
+    int odd = 0;
+    int count = 0;
+    int even = 0;
+    do{
+        System.out.println("Please enter number:");
+        input = in.nextInt();
+        int remainder = input%2;
+    
+        
+            if (remainder == 1){ //odd numbers
+                    odd +=1;
+                }
+                else { //even numbers
+                   even +=1;
+                }
+      
+    } while (input > 0);
+    if (input %2 ==1){ // eliminate last number from odd if odd
+        odd = odd -1;
+    }
+    else{ // eliminate last number from ven count if even
+        even = even -1;
+    }
+        System.out.println("Even :" + even);
+        System.out.println("Odd : "+ odd);
+        
+    //Question 3
+        System.out.println("Question 3");
+    int high = 0;
+
+    int high_game = 0;
+ 
+    int games = 1;
+    int score;
+    int sum = 0;
+    while (games < 11){
+        System.out.print("Game "+ games + ":");
+        score = in.nextInt();
+        sum = sum + score; //adding onto score
+        if (games ==1){
+            high = score; //initializing highest score
+
+        }
+        if (score >= high){ //comparing curret highest score to nextscore
+            high = score;// new high score
+            high_game = games; //saving game of highest score
+        }
+
+        games+=1;
+                
+    }
+    int av = sum/10;
+        System.out.println("Result:");
+        System.out.println("Average points:" + av);
+        System.out.println("Games with the most points is : Game " + high_game);
+    }
+
+    
+    
+}
