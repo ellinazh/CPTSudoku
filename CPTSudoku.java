@@ -19,13 +19,13 @@ public class CPTSudoku {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
- 
+
         Scanner in = new Scanner(System.in);
         //From here to line 100 something is drawing a board ish....
         int[][] Sudoku_grid = new int[9][9];
-            /*    { 
+        /*    { 
          
-            {3, 0, 6, 5, 0, 8, 4, 0, 0}, 
+         {3, 0, 6, 5, 0, 8, 4, 0, 0}, 
          {5, 2, 0, 0, 0, 0, 0, 0, 0}, 
          {0, 8, 7, 0, 0, 0, 0, 3, 1}, 
          {0, 0, 3, 0, 1, 0, 0, 8, 0}, 
@@ -36,13 +36,13 @@ public class CPTSudoku {
          {0, 0, 5, 2, 0, 6, 3, 0, 0}, 
            
          };
-        */
+         */
         //Entering the grid
         for (int i = 0; i < 9; i++) {
-         System.out.println("Enter sudoku line");
-        for (int j = 0; j < 9; j++) {
-         Sudoku_grid[i][j] = in.nextInt();
-        }
+            System.out.println("Enter sudoku line");
+            for (int j = 0; j < 9; j++) {
+                Sudoku_grid[i][j] = in.nextInt();
+            }
         }
         //Now we are done drawing ish....
         int num = Sudoku_grid.length;
@@ -64,7 +64,6 @@ public class CPTSudoku {
                 return false;//False if number repeats in row
             }
         }
-
 
         for (int i = 0; i < grid.length; i++) {//check if same number appears in given column
             if (grid[i][column] == num) {//False if number repeats in column
